@@ -103,8 +103,8 @@
                                     <a href="{{ route('admin.projects.index') }}" class="list-group-item py-2 ripple {{ Route::currentRouteName() === 'admin.projects.index' ? 'list-group-item-action list-group-item-danger' : ''}}">
                                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Projects</span>
                                     </a>
-                                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                                        <i class="fa-solid fa-users me-3"></i><span>Users</span>
+                                    <a href="{{ route('admin.types.index') }}" class="list-group-item list-group-item-action py-2 ripple {{ Route::currentRouteName() === 'admin.types.index' ? 'list-group-item-action list-group-item-danger' : ''}}">
+                                    <i class="fa-solid fa-diagram-project me-3"></i></i><span>Types</span>
                                     </a>
                                 </div>
                             </nav>
