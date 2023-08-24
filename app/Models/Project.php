@@ -15,7 +15,7 @@ class Project extends Model
     protected $fillable = ['type_id', 'title', 'content', 'slug', 'image'];
 
     public function type(){
-        return $this->brlongsTo(Type::class);
+        return $this->belongsTo(Type::class);
     }
 
     public static function generateSlug($title){

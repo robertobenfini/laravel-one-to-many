@@ -19,6 +19,7 @@
                     <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+
                         <div class="form-group mt-4">
                             <label class="contol-lable">Titolo</label>
                             <input class="form-control @error ('title')is-invalid @enderror" type="text" name="title" id="title" placeholder="Titolo" value="{{ old('title') ?? $project->title }}">
@@ -26,23 +27,40 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group mt-4">
-                        <div>
-                            <img src="{{ asset('storage/'.$project->image) }}" width="500px">
-                        </div>
+                            <div>
+                                <img src="{{ asset('storage/'.$project->image) }}" width="500px">
+                            </div>
                             <label class="contol-lable">Immagine</label>
                             <input type="file" class="form-control @error ('image') is-invalid @enderror" name="image" id="image">
                             @error('image')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="form-group mt-4">
+                            <label class="contol-lable">Tipo</label>
+                            <select class="form-control @error ('type_id') is-invalid @enderror" name="type_id" id="type_id">
+                                <option value="">Seleziona una tipologia di progetto</option>
+                                @foreach($types as $type)
+                                    <option {{ $type->id === old('type_id', $project->type_id) ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('type_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="form-group mt-4">
                             <label class="contol-lable">Contenuto</label>
                             <textarea class="form-control" name="content" id="content" placeholder="Contenuto">{{ old('content') ?? $project->content }}</textarea>
                         </div>
+
                         <div class="form-group mt-4">
                             <button class="btn btn-sm btn-success" type="submit">Salva</button>
                         </div>
+
                     </form>
                 </div>
             </div>

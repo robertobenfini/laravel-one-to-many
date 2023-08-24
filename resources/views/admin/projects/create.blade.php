@@ -18,6 +18,7 @@
                 <div>
                     <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+
                         <div class="form-group mt-4">
                             <label class="contol-lable">Titolo</label>
                             <input class="form-control @error ('title')is-invalid @enderror" type="text" name="title" id="title" placeholder="Titolo" value="{{ old('title') }}">
@@ -25,6 +26,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group mt-4">
                             <label class="contol-lable">Immagine</label>
                             <input type="file" class="form-control @error ('image') is-invalid @enderror" name="image" id="image">
@@ -32,6 +34,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group mt-4">
                             <label class="contol-lable">Tipo</label>
                             <select class="form-control @error ('type_id') is-invalid @enderror" name="type_id" id="type_id">
@@ -44,13 +47,16 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group mt-4">
                             <label class="contol-lable">Contenuto</label>
                             <textarea class="form-control" name="content" id="content" placeholder="Contenuto">{{ old('content') }}</textarea>
                         </div>
+
                         <div class="form-group mt-4">
                             <button class="btn btn-sm btn-success" type="submit">Salva</button>
                         </div>
+                        
                     </form>
                 </div>
             </div>

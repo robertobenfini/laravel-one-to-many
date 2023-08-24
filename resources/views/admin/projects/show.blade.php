@@ -19,6 +19,10 @@
                     <img src="{{ asset('storage/'.$project->image) }}" width="500px">
                 </div>
 
+                <div>
+                    {{ $project->type->name }}
+                </div>
+
                 <p>
                     {{ $project->content }}
                 </p>
