@@ -25,7 +25,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|max:50',
-            'image' => 'image'
+            'image' => 'image',
+            'type_id' => 'required|exists:types,id'
         ];
     }
 
@@ -33,7 +34,11 @@ class StoreProjectRequest extends FormRequest
         return [
             'title.required' => 'Il titolo è obbligatorio',
             'title.max' => 'Il titolo deve essere lungo al massimo :max caratteri',
-            'image.image' => 'Il file deve essere un\'immagine'
+            
+            'image.image' => 'Il file deve essere un\'immagine',
+            
+            'type_id.required' => 'Devi selezionare il tipo',
+            'type_id.exists' => 'Tipo selezionato non valido'
         ];
     }
 }

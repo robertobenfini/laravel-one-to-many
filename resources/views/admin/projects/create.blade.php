@@ -33,6 +33,18 @@
                             @enderror
                         </div>
                         <div class="form-group mt-4">
+                            <label class="contol-lable">Tipo</label>
+                            <select class="form-control @error ('type_id') is-invalid @enderror" name="type_id" id="type_id">
+                                <option value="">Seleziona una tipologia di progetto</option>
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('type_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group mt-4">
                             <label class="contol-lable">Contenuto</label>
                             <textarea class="form-control" name="content" id="content" placeholder="Contenuto">{{ old('content') }}</textarea>
                         </div>
